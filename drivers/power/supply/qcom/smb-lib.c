@@ -179,6 +179,21 @@ int smblib_stat_sw_override_cfg(struct smb_charger *chg, bool override)
  * REGISTER GETTERS *
  ********************/
 
+enum quick_charge_type {
+	QUICK_CHARGE_NORMAL = 0,
+	QUICK_CHARGE_FAST,
+	QUICK_CHARGE_FLASH,
+	QUICK_CHARGE_TURPE,
+	QUICK_CHARGE_MAX,
+};
+
+struct quick_charge {
+	enum power_supply_type adap_type;
+	enum quick_charge_type adap_cap;
+};
+
+int smblib_get_quick_charge_type(struct smb_charger *chg);
+
 int smblib_get_charge_param(struct smb_charger *chg,
 			    struct smb_chg_param *param, int *val_u)
 {
