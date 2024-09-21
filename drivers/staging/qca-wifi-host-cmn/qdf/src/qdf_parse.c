@@ -99,7 +99,7 @@ QDF_STATUS qdf_ini_parse(const char *ini_path, void *context,
 
 		key = qdf_str_trim(key);
 
-		pr_info("qcacld: cfg: \"%s\" = \"%s\"\n", key, value);
+		pr_debug("qcacld: cfg: \"%s\" = \"%s\"\n", key, value);
 
 		/*
 		 * Ignoring comments, a valid ini line contains one of:
@@ -149,4 +149,5 @@ static int __init wlan_copy_ini_buf(void)
 
 	return 0;
 }
+
 module_init(wlan_copy_ini_buf);
